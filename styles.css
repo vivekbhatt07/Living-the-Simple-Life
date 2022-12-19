@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
   --primary-font: "Lora", serif;
-  --secondary-font: "Ubuntu", sans-serif;
+  --secondary-font: "Rubik", sans-serif;
   --bg-color: #f8f8f8;
   --head-color: #143774;
   --subhead-color: #1792d2;
   --link-color: #707070;
-  --ubuntu-bold: 700;
+  --rubik-bold: 700;
   --lora-regular: 400;
 }
 
@@ -26,25 +26,50 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--primary-font);
   color: var(--head-color);
   font-weight: var(--lora-regular);
 }
 
 h1 {
-  font-weight: var(--lora-regular);
+  font-size: 48px;
+  line-height: 64px;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 48px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 30px;
 }
 
 a {
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+p {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.continue-link {
+  color: #1792d2;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 500;
 }
 
 /* Header: */
@@ -71,7 +96,6 @@ img {
 .logo {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .logo-head {
@@ -82,7 +106,7 @@ img {
   font-size: 0.75rem;
   color: var(--subhead-color);
   text-transform: uppercase;
-  font-weight: var(--ubuntu-bold);
+  font-weight: var(--rubik-bold);
 }
 
 .nav-list {
@@ -91,13 +115,10 @@ img {
   list-style: none;
 }
 
-/* .nav-list-item {
-} */
-
 .nav-list-item a {
   color: var(--link-color);
   text-transform: uppercase;
-  font-weight: var(--ubuntu-bold);
+  font-weight: var(--rubik-bold);
   font-size: 1rem;
   padding: 0.25em 0; /* (16px) X (0.25em) === (4px)*/
 }
@@ -126,31 +147,92 @@ img {
   gap: 2em;
 }
 
-.main-article {
+.main-section {
   display: flex;
   flex-direction: column;
+  gap: 1.5em;
+}
+
+.primary-section {
+  flex-basis: 70%;
+}
+
+.side-section {
+  flex-basis: 30%;
+}
+
+.primary-section,
+.side-section {
+  flex-basis: 1;
+  flex-shrink: 1;
 }
 
 .border-container {
   border: 20px solid #ebebeb;
   padding: 1.5em; /* (16px) X (1.5em) === (24px)*/
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
-.primary-section {
-  flex-basis: 80%;
-  flex-grow: 1;
-  flex-shrink: 1;
-}
-
-.side-section {
-  flex-basis: 30%;
-  flex-grow: 1;
-  flex-shrink: 1;
-}
 .subArticle-container {
   display: flex;
   flex-direction: column;
 }
+
+/* MAIN ARTICLE: */
+.main-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  border: 1px solid magenta;
+}
+
+.main-article p strong {
+  color: #717171;
+  font-weight: 500;
+}
+
+.main-article p a {
+  color: #1792d2;
+  text-decoration: underline;
+}
+
+/* MAIN SIDE ARTICLE: */
+.main-side-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+/* .main-side-article-img {
+  flex-basis: 50%;
+  flex-grow: 1;
+  flex-shrink: 1;
+} */
+
+.main-side-article p {
+  color: #143774;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.border-container h3 {
+  font-size: 16px;
+  line-height: 28px;
+  text-transform: uppercase;
+  font-family: var(--secondary-font);
+  font-weight: var(--rubik-bold);
+  text-align: center;
+}
+
+.main-side-article h4 {
+  font-size: 14px;
+  line-height: 28px;
+  text-align: center;
+}
+
+/**/
 
 /* SUB ARTICLE: */
 .subArticle-container {
@@ -168,20 +250,41 @@ img {
 
 .subArticle-img {
   flex-basis: 30%;
-  flex-grow: 1;
-  flex-shrink: 1;
 }
 
 .subArticle-text {
   flex-basis: 70%;
-  flex-grow: 1;
-  flex-shrink: 1;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
 }
 
+.subArticle-img,
+.subArticle-text {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
 /*  */
+
+/* FOOTER: */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #143774;
+  padding: 1.5em 0;
+}
+
+footer p {
+  color: #fff;
+}
+
+footer span {
+  color: #fff;
+  opacity: 0.8;
+}
 
 @media (max-width: 675px) {
   .header-container {
@@ -195,5 +298,15 @@ img {
   .nav-list {
     flex-direction: column;
     align-items: center;
+  }
+
+  /* MAIN: */
+
+  .main-container {
+    flex-direction: column;
+  }
+
+  .main-subArticle {
+    flex-direction: column;
   }
 }
